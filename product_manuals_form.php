@@ -60,8 +60,8 @@ $conn = new mysqli("localhost", $username, $password, $db_name);
     <div class="spacer_200"></div>
     <div class="center content_center">
     <h3><?php echo $pname; ?></h3>
-    <label for="fname">Full Name</label>
-    <input type="text" id="fname" name="fname" placeholder="Your Name"><br><br>
+    <label for="fname">Your Email</label>
+    <input type="text" id="email" name="email" placeholder="Your Email"><br><br>
     <label for="fname">Company Name</label>
     <input type="text" id="cname" name="cname" placeholder="Company Name"><br><br>
     <label for="fname">Product Serial Number</label>
@@ -90,13 +90,15 @@ crossorigin="anonymous"></script>
 
 <script>
     prod_id = <?php  echo $prod_id; ?>;
+    prod_name = "<?php  echo $pname; ?>";
 function auth_dl(){
    $.post("functions.php",
             {
                 f: "manual_dl",
-                prod_id:prod_id ,
+                prod_id:prod_id,
+                prod_name:prod_name,
                 sn: $('#psn').val(),
-                name: $('#fname').val(),
+                email: $('#email').val(),
                 cname: $('#cname').val()
             },
             function(data,status){

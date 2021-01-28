@@ -2,17 +2,17 @@
 session_start();
 if (isset($_SESSION['id'])){
     if($_SESSION['agent'] != $_SERVER['HTTP_USER_AGENT']) {
-        Header("Location: http://www.codelportal.com/pages/index.php?e=1");
+        Header("Location: https://www.codelportal.com/product_center/index.php?e=1");
         die();
     }
     if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
-         Header("Location: http://www.codelportal.com/pages/index.php?e=1");
+         Header("Location: https://www.codelportal.com/product_center/index.php?e=1");
         die();
     }
     $pid = $_SESSION['prod_id'];
 }
 else{
- Header("Location: http://www.codelportal.com/product_center/index.php?e=1");
+ Header("Location: https://www.codelportal.com/product_center/index.php?e=1");
 }
 include("../pages/config.php");
 
@@ -57,7 +57,7 @@ include("../pages/config.php");
       $conn = new mysqli("localhost", $username, $password, $db_name);
                                     
         //Get main reports (Query 1) 
-        $sql = "SELECT id,name,prod_id FROM downloads WHERE prod_id='$pid'";
+        $sql = "SELECT id,name,prod_id,filename FROM downloads WHERE prod_id='$pid'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -65,13 +65,14 @@ include("../pages/config.php");
             while($row = $result->fetch_assoc()) {
 
                 $name = $row["name"];
+                $fname = $row['filename'];
                 
-                echo '<a href="https://www.codelportal.com/product_center/product.php?pid='.$pid.'">';
+                echo '<a target="_blank" href="https://www.codelportal.com/product_center/download-file.php?f='.$fname.'&pid='.$pid.'">';
                 echo '<div class="card">';
                   echo '<img src="img/pdf.png" alt="pdf" class="responsive_icon">';
                   echo '<div class="container">';
                     echo '<h4><b>'.$name.'</b></h4> ';
-                    echo '<p>A Description</p> ';
+                    echo '<p>Opens in a new tab</p> ';
                   echo '</div>';
                echo ' </div>';
                 echo '</a>';
@@ -82,7 +83,8 @@ include("../pages/config.php");
         //close conn
         $conn->close();  
     ?>
-    
+<button class="btn" onclick="location.href='https://www.codelportal.com/product_center/index.php?pid=<?php echo $prod_id; ?>'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to products</button>
+
     </div>
     <div class="spacer_100"></div>
 <div class="footer content_center">
