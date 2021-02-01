@@ -48,6 +48,7 @@ function manual_dl($pid,$sn,$email,$cname,$pname){
         $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
 
         notif($email,$cname,$sn,$pname);
+        save_capture($pname,$email,$cname,$sn);
         echo "OK";
 }
 
@@ -102,6 +103,32 @@ function notif($mail_user,$comp_name,$serial_num,$product){
     
     
     mail('andy.gilbert@codel.co.uk,sales@codel.co.uk', $subject, $message, $headers);
+    }
+
+    //Add to DB
+    function save_capture($prod,$email,$comp_name,$serial_num){
+
+        global $username;
+        global $password;
+        global $db_name;
+        $conn = new mysqli("localhost", $username, $password, $db_name);
+        
+        $sql = "INSERT INTO barcode_contacts
+        (company,
+        email,
+        product,
+        sn,
+        capture_date) 
+        VALUES('$comp_name',
+        '$email',
+        '$prod',
+        '$serial_num',
+        NOW())";
+        
+        $result = $conn->query($sql);
+
+        //close conn
+        $conn->close();
     }
 
 ?>

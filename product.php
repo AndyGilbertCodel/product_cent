@@ -42,7 +42,7 @@ $conn = new mysqli("localhost", $username, $password, $db_name);
     <title>CODEL Product Center</title>
     
     <!-- Custom CSS -->
-    <link href="css/mystyles.css?v=267" rel="stylesheet">
+    <link href="css/mystyles.css?v=269" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
@@ -63,8 +63,8 @@ $conn = new mysqli("localhost", $username, $password, $db_name);
     <div class="spacer_200"></div>
     <div class="center content_center">
     <img src="<?php echo $pimg; ?>" class="responsive product_img">
-    <button class="btn" onclick="location.href='https://www.codelportal.com/product_center/product_manuals_form.php?pid=<?php echo $prod_id; ?>'"><i class="fa fa-file-text"></i> Manuals</button>
-<button class="btn" onclick="location.href='https://www.codelportal.com/product_center/product_register.php?pid=<?php echo $prod_id; ?>&sn=<?php echo $sn; ?>'"><i class="fa fa-certificate"></i> Register Product</button>
+    <button class="btn" onclick="location.href='https://www.codelportal.com/product_center/product_manuals_form.php?pid=<?php echo $prod_id; ?>'">Manuals</button>
+<button class="btn" onclick="location.href='https://www.codelportal.com/product_center/product_register.php?pid=<?php echo $prod_id; ?>&sn=<?php echo $sn; ?>'"> Register Product</button>
    <button class="btn" onclick="location.href='https://www.codelportal.com/product_center/index.php?pid=<?php echo $prod_id; ?>'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to products</button>
    <div class="spacer_200"></div>
     </div>

@@ -18,7 +18,7 @@ include("../pages/config.php");
     <title>CODEL Product Center</title>
     
     <!-- Custom CSS -->
-    <link href="css/mystyles.css?v=2583472" rel="stylesheet">
+    <link href="css/mystyles.css?v=2583474" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">

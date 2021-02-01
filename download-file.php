@@ -26,9 +26,9 @@ if ($_GET['c']){
      $c = strip_tags($_GET['c']);
 }
 
-//Get category
-if ($_GET['id']){
-     $id = strip_tags($_GET['id']);
+//Get prod id
+if ($_GET['pid']){
+     $id = strip_tags($_GET['pid']);
 }
 
 
@@ -38,7 +38,7 @@ $fd = "";
 $conn = new DBConnect();
 $conn->connect();
 
-$query = "UPDATE downloads SET count=count+1 WHERE id=$id";
+$query = "UPDATE downloads SET barcode_count=barcode_count+1 WHERE prod_id=$id";
         $result = mysql_query($query);
 
 //close conn
